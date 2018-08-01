@@ -719,7 +719,7 @@ function XploreTableHierarchy(table, options) {
     if (gr.next()) {
       return getDbObject(gr.name);
     } else {
-      throw 'Invalid table label: ' + label;
+      throw 'Table label not found: ' + label;
     }
   };
 
@@ -739,7 +739,7 @@ function XploreTableHierarchy(table, options) {
       }
       gr.query();
       if (!gr.hasNext()) {
-        throw 'Invalid table name: ' + table;
+        throw 'Table name not found: ' + table;
       }
       while (gr.next()) {
         result[gr.getValue('name')] = info(gr);
@@ -934,7 +934,9 @@ function XploreTableHierarchy(table, options) {
 
     } catch (ex) {
       ret.$success = false;
-      ret.$error = 'Exception occured. ' + ex.name + ': ' + ex.message;
+      ret.$error = ex.name ?
+                   'Exception occured. ' + ex.name + ': ' + ex.message :
+                   '' + ex;
       if (ex.lineNumber) ret.$error += ' on line ' + ex.lineNumber;
     }
 

@@ -421,17 +421,21 @@
                       </table>
 
                       <form class="form" action="" method="post" id="table_hierarchy_form">
+                        
                         <div class="input-group">
                           <input type="text" class="form-control" id="table_hierarchy_table" name="table_hierarchy_table" placeholder="table" />
                           <span class="input-group-btn">
                            <button type="submit" class="btn btn-default">Show</button>
                           </span>
                         </div>
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox" id="table_hierarchy_table_do_label" checked="checked" /> Search table labels
-                          </label>
-                        </div>
+                        <label class="radio-inline" for="table_hierarchy_table_do_label">
+                            <input class="radio" type="radio" name="table_hierarchy_table_do_label" value="" />
+                            Search names
+                        </label>
+                        <label class="radio-inline" for="table_hierarchy_table_do_label">
+                            <input class="radio" type="radio" id="table_hierarchy_table_do_label" name="table_hierarchy_table_do_label" value="true" checked="checked" />
+                            Search labels
+                        </label>
                       </form>
 
                     </div>
